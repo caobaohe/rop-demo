@@ -7,19 +7,9 @@ package com.cbh.demo.request;
  */
 public class UserRequest extends BaseRequest {
 
-    private Integer id;
-
     private String username;
 
-    private String sign;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
+    private String password;
 
     public String getUsername() {
         return username;
@@ -29,11 +19,11 @@ public class UserRequest extends BaseRequest {
         this.username = username;
     }
 
-    public String getSign() {
-        return sign;
+    public String getPassword() {
+        return password;
     }
 
-    public void setSign(String sign) {
-        this.sign = sign;
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

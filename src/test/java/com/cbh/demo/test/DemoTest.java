@@ -12,7 +12,6 @@ import org.junit.Test;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -39,18 +38,11 @@ public class DemoTest {
     public void test() throws IOException {
         String serverUrl = "http://127.0.0.1:9090/router";
         String appKey = "01";
-        String appSecret = "oZyGs1Vhtbz1EyaMz2aQ1Nag";
+        String appSecret = "abcde";
         DefaultRopClient ropClient = new DefaultRopClient(serverUrl, appKey, appSecret);
-        UserRequest userRequest = new UserRequest();
-        userRequest.setUsername("A");
-        Map<String, Object> map = new HashMap<>();
-        map.put("appKey", appKey);
-        map.put("username", userRequest.getUsername());
-        map.put("method", "user.get");
-        map.put("v", "1.0");
-        String sign = getSign(appSecret, map);
-        userRequest.setSign(sign);
-        CompositeResponse response = ropClient.buildClientRequest().get(userRequest, UserResponse.class, "user.get", "1.0");
+        CompositeResponse response = ropClient.buildClientRequest().
+                addParam("username", "AAAA").
+                get(UserResponse.class, "user.getSession", "1.0");
         boolean successful = response.isSuccessful();
         System.out.println(successful);
         if (successful) {
@@ -68,7 +60,7 @@ public class DemoTest {
     public void testUserGet() throws IOException {
         String serverUrl = "http://127.0.0.1:9090/router";
         String appKey = "01";
-        String appSecret = "";
+        String appSecret = "abcde";
         DefaultRopClient ropClient = new DefaultRopClient(serverUrl, appKey, appSecret);
         UserRequest userRequest = new UserRequest();
         userRequest.setUsername("A");
