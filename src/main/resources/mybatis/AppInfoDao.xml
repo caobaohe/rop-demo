@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cbh.demo.dao.AppInfoDao">
+  <resultMap id="BaseResultMap" type="com.cbh.demo.model.AppInfo">
+    <id column="app_key" jdbcType="VARCHAR" property="appKey" />
+    <result column="app_secret" jdbcType="VARCHAR" property="appSecret" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    app_key, app_secret
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from app_info
+    where app_key = #{appKey,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from app_info
+    where app_key = #{appKey,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.cbh.demo.model.AppInfo">
+    insert into app_info (app_key, app_secret)
+    values (#{appKey,jdbcType=VARCHAR}, #{appSecret,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.cbh.demo.model.AppInfo">
+    insert into app_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="appKey != null">
+        app_key,
+      </if>
+      <if test="appSecret != null">
+        app_secret,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="appKey != null">
+        #{appKey,jdbcType=VARCHAR},
+      </if>
+      <if test="appSecret != null">
+        #{appSecret,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cbh.demo.model.AppInfo">
+    update app_info
+    <set>
+      <if test="appSecret != null">
+        app_secret = #{appSecret,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where app_key = #{appKey,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cbh.demo.model.AppInfo">
+    update app_info
+    set app_secret = #{appSecret,jdbcType=VARCHAR}
+    where app_key = #{appKey,jdbcType=VARCHAR}
+  </update>
+</mapper>

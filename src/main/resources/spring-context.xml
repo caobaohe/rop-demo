@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:rop="http://www.bookegou.com/schema/rop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.bookegou.com/schema/rop
+       http://www.bookegou.com/schema/rop/rop-1.0.xsd">
+
+    <bean id="user" class="com.cbh.demo.model.User">
+        <property name="name" value="瞌睡虫"/>
+    </bean>
+
+    <context:property-placeholder location="classpath*:*.properties"/>
+
+    <context:component-scan base-package="com.cbh.demo">
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+
+
+    <rop:annotation-driven id="router"
+                           service-access-controller="serviceAccessController"/>
+
+    <bean id="serviceAccessController" class="com.cbh.demo.rop.DemoServiceAccessController"/>
+
+    <!--
+    <rop:interceptors>
+    </rop:interceptors>
+
+    <rop:listeners>
+    </rop:listeners>
+
+    <rop:sysparams/>
+    -->
+</beans>
