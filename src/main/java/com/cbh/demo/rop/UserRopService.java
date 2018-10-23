@@ -36,8 +36,9 @@ public class UserRopService {
 
     @ServiceMethod(method = "user.get", version = "1.0", needInSession = NeedInSessionType.NO)
     public Object getUser(UserRequest request) {
-        User user = null;//userService.getUserById(request.getId());
+        User user = userService.getUserById(request.getId());
         UserResponse userResponse = new UserResponse();
+        userResponse.setUsername(user.getName());
         return userResponse;
     }
 }
