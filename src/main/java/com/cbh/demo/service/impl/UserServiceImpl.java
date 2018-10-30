@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
  * @Date: 2018/10/18
  * @Description:
  */
+@com.alibaba.dubbo.config.annotation.Service
 @Service
 public class UserServiceImpl implements UserService {
 

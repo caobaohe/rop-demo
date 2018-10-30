@@ -10,6 +10,9 @@
        http://www.rop.com/schema/rop
        http://www.rop.com/schema/rop/rop-1.0.xsd">
 
+    <import resource="dubbo-provider.xml"/>
+    <import resource="dubbo-consumer.xml"/>
+
     <bean id="user" class="com.cbh.demo.model.User">
         <property name="name" value="瞌睡虫"/>
     </bean>
