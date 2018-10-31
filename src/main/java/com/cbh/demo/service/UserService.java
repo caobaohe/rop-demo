@@ -10,4 +10,6 @@ import com.cbh.demo.model.User;
 public interface UserService {
 
     User getUserById(Integer id);
+
+    User save(User user);
 }

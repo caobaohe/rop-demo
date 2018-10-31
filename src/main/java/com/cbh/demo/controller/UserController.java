@@ -1,13 +1,16 @@
 package com.cbh.demo.controller;
 
+import com.cbh.demo.model.User;
 import com.cbh.demo.request.UserRequest;
 import com.cbh.demo.response.UserResponse;
 import com.cbh.demo.rop.client.DemoRopClient;
+import com.cbh.demo.service.UserService;
 import com.google.gson.Gson;
 import com.rop.client.ClientRequest;
 import com.rop.client.CompositeResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -22,6 +25,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class UserController {
 
     protected static final Logger logger = LoggerFactory.getLogger(UserController.class);
+
+    @Autowired
+    private UserService userService;
 
     @ResponseBody
     @RequestMapping("get")
@@ -39,6 +45,17 @@ public class UserController {
     @RequestMapping("getString")
     public String getString(String str) {
         logger.info(str);
+        User user = userService.getUserById(1);
+        return str;
+    }
+
+    @ResponseBody
+    @RequestMapping("save")
+    public String save(String str) {
+        logger.info(str);
+        User user = new User();
+        user.setName(str);
+        userService.save(user);
         return str;
     }
 }
