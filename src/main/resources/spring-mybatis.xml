@@ -38,6 +38,8 @@
 
         <!-- 配置监控统计拦截的filters -->
         <property name="filters" value="stat"/>
+
+        <property name="connectionInitSqls" value="set names utf8mb4;"/>
     </bean>
 
     <bean id="sessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">

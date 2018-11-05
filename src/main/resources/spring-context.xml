@@ -14,7 +14,7 @@
     <import resource="dubbo-consumer.xml"/>
 
     <bean id="user" class="com.cbh.demo.model.User">
-        <property name="name" value="瞌睡虫"/>
+        <property name="name" value="${user.home}"/>
     </bean>
 
     <context:property-placeholder location="classpath*:*.properties"/>

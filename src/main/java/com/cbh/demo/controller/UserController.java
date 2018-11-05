@@ -43,10 +43,10 @@ public class UserController {
 
     @ResponseBody
     @RequestMapping("getString")
-    public String getString(String str) {
+    public User getString(String str) {
         logger.info(str);
         User user = userService.getUserById(1);
-        return str;
+        return user;
     }
 
     @ResponseBody
