@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width"/>
+    <title>Login</title>
+    <script src="https://cdn.bootcss.com/jquery/1.8.1/jquery.min.js"></script>
+    <!--<script src="http://www.ohdave.com/rsa/Barrett.js"></script>-->
+    <!--<script src="http://www.ohdave.com/rsa/BigInt.js"></script>-->
+    <!--<script src="http://www.ohdave.com/rsa/RSA.js"></script>-->
+    <!--<script src="./Barrett.js"></script>-->
+    <!--<script src="./BigInt.js"></script>-->
+    <!--<script src="./RSA.js"></script>-->
+    <script type="text/javascript">
+        $(function () {
+            var rsa_n = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCuJKchro8zP43dnxGZ7RKzJ21QgkvAj+Yu6KIKQ3UIBhKz7vNksnj6kV39efAonMU/Hr/z1LpkC04qzDlwuCtGhQiPaFUzvrzLr2fOrHsoOQ5waGu2xxqt6QLLwDv7r3I3Ow42TDyjnxmERoyUWYADZtMujhdpIWPd/6oF72evdwIDAQAB";
+            //rsa_n = "MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAM1gJBQ8hTOACL6FXwP0Sc/wx5U419r45i/V/D28GuhTaxSPEPptxNiY6Qi4xubmk8nTLqJLt3qrvuDgzazJaJ8CAwEAAQ==";
+
+            var time = new Date().getTime();
+            time = parseInt(time / 1000 / 60);
+            console.log(time)
+            var content = "huangmu," + time + "e4e5ffde387ce37f4c9887ec23805cba,," + time;
+            var key = new RSAKeyPair("10001", '', rsa_n); //10001 => e的十六进制
+            var data = encryptedString(key, content);
+            console.log(data);
+        });
+
+    </script>
+</head>
+<body>
+<div>
+    <input type="button" id="btn" value="点我"/>
+    <textarea id="tra" rows="15" cols="65"></textarea>
+    <hr/>
+    注意+好的处理
+</div>
+</body>
+</html>

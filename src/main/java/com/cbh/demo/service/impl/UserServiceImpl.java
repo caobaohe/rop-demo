@@ -4,14 +4,15 @@ import com.cbh.demo.dao.UserDao;
 import com.cbh.demo.model.User;
 import com.cbh.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  * @Author: wb.caobaohe
  * @Date: 2018/10/18
  * @Description:
  */
-//@com.alibaba.dubbo.config.annotation.Service
-//@Service
+@com.alibaba.dubbo.config.annotation.Service
+@Service
 public class UserServiceImpl implements UserService {
 
     @Autowired

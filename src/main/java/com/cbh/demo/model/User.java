@@ -1,15 +1,25 @@
 package com.cbh.demo.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 import java.io.Serializable;
 import java.util.Date;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonIgnoreProperties({"password"})
+@ApiModel(value = "user")
 public class User implements Serializable {
+
+    @ApiModelProperty(value = "id")
     private Integer id;
-
+    @ApiModelProperty(value = "姓名")
     private String name;
-
+    @ApiModelProperty(value = "password")
     private String password;
-
+    @ApiModelProperty(value = "birthday")
     private Date birthday;
 
     private static final long serialVersionUID = 1L;
@@ -46,5 +56,8 @@ public class User implements Serializable {
         this.birthday = birthday;
     }
 
-    
+    public void setAttr() {
+        this.name = "setAttr";
+    }
+
 }

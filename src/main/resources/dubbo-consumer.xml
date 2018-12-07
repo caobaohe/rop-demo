@@ -14,12 +14,12 @@
     <!--<dubbo:registry address="multicast://224.5.6.7:1234"/>-->
 
     <!-- 生成远程服务代理，可以和本地bean一样使用demoService -->
-    <dubbo:reference id="userService"
-                     interface="com.cbh.demo.service.UserService"
-                     registry="demoRegister"
-                     version="0.1" check="false"/>
-    <dubbo:reference id="appInfoService"
-                     interface="com.cbh.demo.service.AppInfoService"
-                     registry="demoRegister"
-                     version="0.1" check="false"/>
+    <!--<dubbo:reference id="userService"-->
+                     <!--interface="com.cbh.demo.service.UserService"-->
+                     <!--registry="demoRegister"-->
+                     <!--version="0.1" check="false"/>-->
+    <!--<dubbo:reference id="appInfoService"-->
+                     <!--interface="com.cbh.demo.service.AppInfoService"-->
+                     <!--registry="demoRegister"-->
+                     <!--version="0.1" check="false"/>-->
 </beans>

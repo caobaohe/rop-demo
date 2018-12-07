@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width"/>
+    <title>Login</title>
+    <script src="https://cdn.bootcss.com/jquery/1.8.1/jquery.min.js"></script>
+    <script src="http://passport.cnblogs.com/scripts/jsencrypt.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            var key = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCuJKchro8zP43dnxGZ7RKzJ21QgkvAj+Yu6KIKQ3UIBhKz7vNksnj6kV39efAonMU/Hr/z1LpkC04qzDlwuCtGhQiPaFUzvrzLr2fOrHsoOQ5waGu2xxqt6QLLwDv7r3I3Ow42TDyjnxmERoyUWYADZtMujhdpIWPd/6oF72evdwIDAQAB";
+            //key = "MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAM1gJBQ8hTOACL6FXwP0Sc/wx5U419r45i/V/D28GuhTaxSPEPptxNiY6Qi4xubmk8nTLqJLt3qrvuDgzazJaJ8CAwEAAQ==";
+            var encrypt = new JSEncrypt();
+            encrypt.setPublicKey(key);
+            var time = new Date().getTime();
+            time = parseInt(time / 1000 / 60);
+            console.log(time)
+            var data = encrypt.encrypt("huangmu," + time + "e4e5ffde387ce37f4c9887ec23805cba,," + time);
+            console.log(data);
+        });
+
+    </script>
+</head>
+<body>
+<div>
+    <input type="button" id="btn" value="点我"/>
+    <textarea id="tra" rows="15" cols="65"></textarea>
+    <hr/>
+    注意+好的处理
+</div>
+</body>
+</html>

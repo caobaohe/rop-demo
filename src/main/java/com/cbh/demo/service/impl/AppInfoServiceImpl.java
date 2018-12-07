@@ -11,8 +11,8 @@ import org.springframework.stereotype.Service;
  * @Date: 2018/10/18
  * @Description:
  */
-//@com.alibaba.dubbo.config.annotation.Service
-//@Service
+@com.alibaba.dubbo.config.annotation.Service
+@Service
 public class AppInfoServiceImpl implements AppInfoService {
 
     @Autowired
